@@ -17,16 +17,14 @@ export default function RotatingImage({imageUrl}) {
     }
 
     return (
-        <div className={"modelImageContainer"}>
-            <div
-                className={"modelImage"}
-                onMouseMove={event => { handleMouseMove(event) }}
-                onMouseLeave={handleMouseLeave}
-                style={{
-                    backgroundImage: 'url(' + imageUrl + ')',
-                    backgroundPosition: backgroundPosition,
-                }}
-            />
-        </div>
+        <div
+            className={"modelImage"}
+            onMouseMove={event => { handleMouseMove(event) }}
+            onMouseLeave={handleMouseLeave}
+            style={{
+                backgroundImage: 'url(' + imageUrl + ')',
+                backgroundPosition: backgroundPosition,
+            }}
+        />
     );
 }
