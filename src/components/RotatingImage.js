@@ -1,24 +1,32 @@
-export default function RotatingImage() {
+import { useState } from 'react';
+import '../assets/RotatingImage.css';
+
+export default function RotatingImage({imageUrl}) {
+    const [backgroundPosition, setBackgroundPosition] = useState('0%');
+
     function handleMouseMove(event) {
-        console.log(event.clientX);
+        const columnPortion = 1 / 15;
+        const actualPortion = event.nativeEvent.offsetX / event.currentTarget.offsetWidth;
+        const actualColumn = Math.floor(actualPortion / columnPortion);
+
+        setBackgroundPosition((actualColumn / 14) * -100 + '%');
     }
 
-    function rotateImage() {
-        console.log('entro');
-
-
-        window.addEventListener('mousemove', handleMouseMove);
-    }
-
-    function resetImage() {
-        console.log('surto');
-
-        window.removeEventListener('mousemove', handleMouseMove);
+    function handleMouseLeave() {
+        setBackgroundPosition('0%');
     }
 
     return (
-        <div className={"modelImageContainer"} onMouseEnter={rotateImage} onMouseLeave={resetImage}>
-            <div className={"modelImage"}></div>
+        <div className={"modelImageContainer"}>
+            <div
+                className={"modelImage"}
+                onMouseMove={event => { handleMouseMove(event) }}
+                onMouseLeave={handleMouseLeave}
+                style={{
+                    backgroundImage: 'url(' + imageUrl + ')',
+                    backgroundPosition: backgroundPosition,
+                }}
+            />
         </div>
     );
 }

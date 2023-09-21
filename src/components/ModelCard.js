@@ -1,14 +1,14 @@
 import Card from 'react-bootstrap/Card';
-import '../assets/ModelCard.css';
 import RotatingImage from "./RotatingImage";
 
 export default function ModelCard()
 {
     return (
         <Card className={"modelCard p-4 m-4"}>
-            <RotatingImage />
+            <RotatingImage
+                imageUrl="https://media.sketchfab.com/models/fc6e731a0131471ba8e45511c7ea9996/fallbacks/f2b85e1fbe0e4133b53d9e91ccb076eb/3a12f4d7a66f49cba11ea349a41356c3.jpeg"
+            />
             <Card.Body>
-                {/*<StepRange />*/}
                 {/*<Card.Title>Card Title</Card.Title>*/}
                 {/*<Card.Text>*/}
 
