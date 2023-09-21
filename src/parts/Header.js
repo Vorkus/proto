@@ -1,4 +1,10 @@
+import Title from "../components/Title";
+
 export default function Header()
 {
-    return <header></header>;
+    return (
+        <header>
+            <Title />
+        </header>
+    );
 }

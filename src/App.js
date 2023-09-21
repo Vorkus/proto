@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className="App p-4">
+    <div className="App">
         <Header />
         <Main />
     </div>

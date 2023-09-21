@@ -21,14 +21,9 @@ export default function ModelCard({ modelData })
                             src={ "https://static.vecteezy.com/system/resources/thumbnails/010/260/479/small/default-avatar-profile-icon-of-social-media-user-in-clipart-style-vector.jpg" }
                             alt={"User profile"}
                         />
-                        <span className={""}>{ modelData.modelTitle }</span>
+                        <span className={"text-truncate"}>{ modelData.modelTitle }</span>
                     </div>
                 </div>
-                {/*<Card.Title>Card Title</Card.Title>*/}
-                {/*<Card.Text>*/}
-
-                {/*</Card.Text>*/}
-                {/*<Button variant="primary">Go somewhere</Button>*/}
             </Card.Body>
             <Card.Footer className={"d-flex justify-content-between"}>
                 <span>

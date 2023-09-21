@@ -1,6 +1,5 @@
 .modelImage {
     max-width: calc(100% - 10px);
-    height: auto;
     aspect-ratio: 16/9;
     background-size: cover;
     margin: 5px;
