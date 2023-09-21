@@ -1,12 +1,12 @@
 import Card from 'react-bootstrap/Card';
 import RotatingImage from "./RotatingImage";
 
-export default function ModelCard()
+export default function ModelCard({imageUrl})
 {
     return (
         <Card className={"modelCard p-4 m-4"}>
             <RotatingImage
-                imageUrl="https://media.sketchfab.com/models/fc6e731a0131471ba8e45511c7ea9996/fallbacks/f2b85e1fbe0e4133b53d9e91ccb076eb/3a12f4d7a66f49cba11ea349a41356c3.jpeg"
+                imageUrl={ imageUrl }
             />
             <Card.Body>
                 {/*<Card.Title>Card Title</Card.Title>*/}
