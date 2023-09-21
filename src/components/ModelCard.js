@@ -1,6 +1,8 @@
 import Card from 'react-bootstrap/Card';
 import RotatingImage from "./RotatingImage";
 import '../assets/ModelCard.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 export default function ModelCard({ modelData })
 {
@@ -28,7 +30,20 @@ export default function ModelCard({ modelData })
                 {/*</Card.Text>*/}
                 {/*<Button variant="primary">Go somewhere</Button>*/}
             </Card.Body>
-            <Card.Footer></Card.Footer>
+            <Card.Footer className={"d-flex justify-content-between"}>
+                <span>
+                    <FontAwesomeIcon icon={icon({name: 'eye', family: 'classic', style: 'regular'})} /> { getRandomInt(10000) }
+                </span>
+                <span>
+                    <FontAwesomeIcon icon={icon({name: 'heart', family: 'classic', style: 'regular'})} /> { getRandomInt(500) }
+                </span>
+                <span>
+                    <FontAwesomeIcon icon={icon({name: 'comments', family: 'classic', style: 'regular'})} />
+                </span>
+                <span>
+                    <FontAwesomeIcon icon={icon({name: 'download', family: 'classic', style: 'solid'})} />
+                </span>
+            </Card.Footer>
             {/*<ThreeCanvas initialRotation={{ x: 0.0, y: 1.0 }}/>*/}
             {/*<ThreeCanvas initialRotation={{ x: 0.5, y: 0.5 }}/>*/}
             {/*<ThreeCanvas initialRotation={{ x: 1.5, y: 4.5 }}/>*/}
@@ -39,3 +54,6 @@ export default function ModelCard({ modelData })
     );
 }
 
+function getRandomInt(maxValue) {
+    return Math.floor(Math.random() * maxValue);
+}
