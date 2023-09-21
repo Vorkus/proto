@@ -1,13 +1,12 @@
 import { useCallback, useState } from 'react';
 import * as THREE from 'three';
-import '../assets/canvas.css';
 
-export function ThreeCanvas() {
+export default function ThreeCanvas({initialRotation}) {
     const [initialized, setInitialized] = useState(false);
     const threeDivRef = useCallback(
         (node) => {
             if (node !== null && !initialized) {
-                initThreeJsScene(node);
+                initializeThreeJsScene(node, initialRotation);
                 setInitialized(true);
             }
         },
@@ -15,21 +14,16 @@ export function ThreeCanvas() {
     )
 
     return (
-        <div className={ 'canvas' } ref={threeDivRef} ></div>
+        <div ref={ threeDivRef } ></div>
     );
 }
 
-function initThreeJsScene(node) {
+function initializeThreeJsScene(node, initialRotation) {
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, 500 / 500, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setClearColor(0xffffff);
-    renderer.setSize(500, 500);
-    node.appendChild(renderer.domElement);
-    camera.position.z = 5;
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshNormalMaterial();
-    const cube = new THREE.Mesh(geometry, material);
+    const camera = initializeCamera();
+    const renderer = initializeRenderer(node);
+
+    const cube = initializeCube(initialRotation);
     scene.add(cube);
     const animate = () => {
         requestAnimationFrame(animate);
@@ -38,5 +32,38 @@ function initThreeJsScene(node) {
         renderer.render(scene, camera);
     }
     animate();
+}
+
+function initializeCamera() {
+    const fieldOfView = 75;
+    const aspectRatio = 100 / 100;
+    const near = 0.1;
+    const far = 1000;
+    const camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, near, far);
+
+    camera.position.z = 5;
+
+    return camera;
+}
+
+function initializeRenderer(node) {
+    const renderer = new THREE.WebGLRenderer();
+
+    renderer.setClearColor(0xffffff);
+    renderer.setSize(200, 200);
+    node.appendChild(renderer.domElement);
+
+    return renderer;
+}
+
+function initializeCube(initialRotation) {
+    const geometry = new THREE.BoxGeometry();
+    const material = new THREE.MeshNormalMaterial();
+    const cube = new THREE.Mesh(geometry, material);
+
+    cube.rotation.x = initialRotation.x;
+    cube.rotation.y = initialRotation.y;
+
+    return cube;
 }
 

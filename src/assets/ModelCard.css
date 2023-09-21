@@ -1,0 +1,14 @@
+.modelImageContainer {
+    height: 100%;
+    max-height: 360px;
+}
+
+.modelImage {
+    height: 100%;
+    /*height: 180px;*/
+    aspect-ratio: 16/9;
+    background-image: url("https://media.sketchfab.com/models/fc6e731a0131471ba8e45511c7ea9996/fallbacks/f2b85e1fbe0e4133b53d9e91ccb076eb/3a12f4d7a66f49cba11ea349a41356c3.jpeg");
+    background-size: cover;
+    background-position: 0;
+    /*background-position: calc(-4800px * (5 /15));*/
+}
