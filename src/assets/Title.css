@@ -4,8 +4,13 @@
     animation: bg-animation 15s infinite alternate;
     min-height: 20vh;
 }
-.title {
-    padding-left: 5%;
+
+.row>.title-container {
+    padding-left: 4%;
+}
+
+.row>.search-container {
+    padding-right: 4%;
 }
 
 .brand-logo {

@@ -2,7 +2,6 @@
     background-color: hsla(0,0%,100%,.6);
     border: 2px solid white;
     border-radius: 100px;
-    min-width: 30vw;
     align-items: center;
     gap: 0.2rem;
     position:relative;
@@ -43,8 +42,15 @@
 }
 
 .modelSearchButton:hover,
-.modelSearchRemove:hover {
+.modelSearchRemove:hover,
+.badge:hover {
     cursor: pointer;
+}
+
+.help-badges>.badge {
+    background-color: hsla(0,0%,100%,.6);
+    border: 2px solid white;
+    color: black;
 }
 
 @keyframes blink {
