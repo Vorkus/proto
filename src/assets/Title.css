@@ -1,8 +1,11 @@
 .title-container.container-fluid {
-    background-image: linear-gradient(90deg,#cab1ff,#a3f9ff 62.66%,#c0ffd9 89.55%);
+    background-image: linear-gradient(90deg, rgba(202,177,255,1) 0%, rgba(163,249,255,1) 74%, rgba(192,255,217,1) 100%);
     background-size: 500%;
-    animation: bg-animation 7s infinite alternate;
+    animation: bg-animation 15s infinite alternate;
     min-height: 20vh;
+}
+.title {
+    padding-left: 5%;
 }
 
 .brand-logo {

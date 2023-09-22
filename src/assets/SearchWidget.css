@@ -1,15 +1,50 @@
-.search-input.form-control {
+#modelSearch {
     background-color: hsla(0,0%,100%,.6);
     border: 2px solid white;
     border-radius: 100px;
     min-width: 30vw;
-    text-decoration-color: black;
-    text-decoration-thickness: 0.2rem;
-    text-underline-offset: 0.1em;
+    align-items: center;
+    gap: 0.2rem;
+    position:relative;
 }
 
-.search-input:not(:focus) {
-    animation: blink 2s step-end infinite;
+#modelSearchInput {
+    background-color: transparent;
+    border-color: transparent;
+    text-decoration-color: black;
+    text-decoration-thickness: 0.2rem;
+    padding-left: 1rem;
+}
+
+#modelSearchInput:invalid {
+    animation: blink 1s step-end infinite;
+    caret-color: transparent;
+}
+
+#modelSearchInput:focus {
+    box-shadow: none;
+}
+
+#modelSearchInput:invalid:not(:focus) {
+    animation: none;
+    text-decoration-line: underline;
+}
+
+.modelSearchButton {
+    padding-right: 5%;
+    font-size: 1.4rem;
+}
+
+.modelSearchRemove {
+    display: block;
+    position:absolute;
+    font-size: 1.5rem;
+    right: 4.2rem;
+}
+
+.modelSearchButton:hover,
+.modelSearchRemove:hover {
+    cursor: pointer;
 }
 
 @keyframes blink {
