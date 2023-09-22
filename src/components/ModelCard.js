@@ -4,10 +4,14 @@ import '../assets/ModelCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-export default function ModelCard({ modelData })
+export default function ModelCard({id, modelData, handleClick })
 {
     return (
-        <Card className={"modelCard h-100"}>
+        <Card
+            className={"modelCard h-100"}
+            id={id}
+            onClick={handleClick}
+        >
             <RotatingImage
                 imageUrl={ modelData.imageUrl }
             />
@@ -21,7 +25,7 @@ export default function ModelCard({ modelData })
                             src={ "https://static.vecteezy.com/system/resources/thumbnails/010/260/479/small/default-avatar-profile-icon-of-social-media-user-in-clipart-style-vector.jpg" }
                             alt={"User profile"}
                         />
-                        <span className={"text-truncate"}>{ modelData.modelTitle }</span>
+                        <span className={"text-truncate"}>{ modelData.title }</span>
                     </div>
                 </div>
             </Card.Body>
@@ -39,12 +43,6 @@ export default function ModelCard({ modelData })
                     <FontAwesomeIcon icon={icon({name: 'download', family: 'classic', style: 'solid'})} />
                 </span>
             </Card.Footer>
-            {/*<ThreeCanvas initialRotation={{ x: 0.0, y: 1.0 }}/>*/}
-            {/*<ThreeCanvas initialRotation={{ x: 0.5, y: 0.5 }}/>*/}
-            {/*<ThreeCanvas initialRotation={{ x: 1.5, y: 4.5 }}/>*/}
-            {/*<ThreeCanvas initialRotation={{ x: 2.5, y: 3.5 }}/>*/}
-            {/*<ThreeCanvas initialRotation={{ x: 3.5, y: 2.5 }}/>*/}
-            {/*<ThreeCanvas initialRotation={{ x: 4.5, y: 1.5 }}/>*/}
         </Card>
     );
 }
