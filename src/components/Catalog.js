@@ -6,11 +6,14 @@ import {useState} from "react";
 
 export default function Catalog() {
     const [showModal, setShowModal] = useState(false);
-    const [modalData, setModalData] = useState([]);
+    const [modalData, setModalData] = useState({id: '?', data: {}});
 
     function handleCardClick(event) {
         setShowModal(true);
-        setModalData(getCardsData()[event.currentTarget.id]);
+        setModalData({
+            id: event.currentTarget.id,
+            data: getCardsData()[event.currentTarget.id]
+        });
     }
 
     return (
@@ -53,6 +56,7 @@ function getCardsData() {
         2: {
                 imageUrl: "https://media.sketchfab.com/models/fc6e731a0131471ba8e45511c7ea9996/fallbacks/f2b85e1fbe0e4133b53d9e91ccb076eb/3a12f4d7a66f49cba11ea349a41356c3.jpeg",
                 title: "Sculpture “Bust of Róża Loewenfeld”",
+                url: "/3d_models/2/scene.gltf",
         },
         3: {
                 imageUrl: "https://media.sketchfab.com/models/f5236789a5094b8fa1d800ffdb29dfa6/fallbacks/b0e04bdb9cf6491f90e74c30e01ebf41/0b90b5e6308e4597b45c73e679df6ed5.jpeg",
