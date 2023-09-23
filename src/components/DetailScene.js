@@ -20,7 +20,6 @@ export default function DetailScene({modelUrl}) {
                 adjustCamera={true}
                 environment={"city"}
                 intensity={0.1}
-                center={{front: true}}
             >
                 <Model
                     url={modelUrl}
