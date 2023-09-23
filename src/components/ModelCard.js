@@ -4,12 +4,12 @@ import '../assets/ModelCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 
-export default function ModelCard({id, modelData, handleClick })
+export default function ModelCard({modelData, handleClick })
 {
     return (
         <Card
             className={"modelCard h-100"}
-            id={id}
+            id={modelData.id}
             onClick={handleClick}
         >
             <RotatingImage
