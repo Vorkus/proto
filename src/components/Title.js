@@ -3,7 +3,7 @@ import SearchWidget from "./SearchWidget";
 
 export default function Title() {
     return (
-        <section className={"container-fluid title-container d-flex align-items-center justify-content-between row m-0"}>
+        <section className={"container-fluid title-container title-gradient d-flex align-items-center justify-content-between row m-0"}>
             <div className={"col-md-6 col-12 text-md-start text-center title-container m-md-0 my-2"}>
                 <h1><strong>Models Catalog</strong></h1>
                 <p>Create living 3D worlds using open-source 3D models animated by AI.</p>

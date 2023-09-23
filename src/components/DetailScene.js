@@ -17,7 +17,7 @@ export default function DetailScene({modelUrl}) {
             <Stage
                 preset={"rembrandt"}
                 shadows={"contact"}
-                adjustCamera={true}
+                adjustCamera={1.2}
                 environment={"city"}
                 intensity={0.1}
             >
