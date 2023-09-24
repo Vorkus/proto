@@ -3,13 +3,13 @@ import SearchWidget from "./SearchWidget";
 
 export default function Title() {
     return (
-        <section className={"container-fluid title-container d-flex align-items-center justify-content-between row m-0"}>
+        <section className={"container-fluid title-container d-flex align-items-center justify-content-between row m-0 pb-4"}>
             <div className={"background title-gradient"}></div>
-            <div className={"col-md-6 col-12 text-md-start text-center title-container m-md-0 my-2"}>
-                <h1><strong>Models Catalog</strong></h1>
+            <div className={"col-md-6 col-12 text-md-start text-center title-container m-md-0 mb-2 p-0"}>
+                <h1><strong>Catalog</strong></h1>
                 <p>Create living 3D worlds using open-source 3D models animated by AI.</p>
             </div>
-            <div className={"offset-lg-2 col-lg-4 offset-md-1 col-md-5 col-12 search-container m-md-0 my-2"}>
+            <div className={"offset-lg-2 col-lg-4 offset-md-1 col-md-5 col-12 search-container m-md-0 my-2 p-0 pt-3"}>
                 <SearchWidget />
             </div>
             {/*<div className={"col text-end"}>*/}

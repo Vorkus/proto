@@ -28,31 +28,8 @@ html::before {
     }
 }
 
-.title-container.container-fluid {
-    min-height: 20vh;
-}
-
-.row>.title-container {
-    padding-left: 4%;
-}
-
-.row>.search-container {
-    padding-right: 4%;
-}
-
-.brand-logo {
-    max-height: 20vh;
-    animation: spin 10s linear infinite;
-}
-
 @keyframes bg-animation {
     100% {
         transform: translateX(66.66%);
-    }
-}
-
-@keyframes spin {
-    100% {
-        transform: rotateY(360deg);
     }
 }

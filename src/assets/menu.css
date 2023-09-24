@@ -1,0 +1,15 @@
+@import "buttons.css";
+
+.menu-nav.background-transparent {
+    background-color: transparent !important;
+}
+
+.navbar-collapse.collapse {
+    flex-grow: 0;
+}
+
+.nav-link.menu-link:hover {
+    text-decoration: underline;
+    text-decoration-color: black;
+    text-decoration-thickness: 3px;
+}

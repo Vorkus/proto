@@ -52,10 +52,10 @@ export default function VisualizationModal({onHide, modalData, onNext, onPreviou
 
             </Modal.Body>
             <Modal.Footer className={"title-gradient justify-content-between"}>
-                <Button className={"button-light"} onClick={handlePrevious} style={{visibility: !modalData.previousId ? 'hidden' : 'visible'}} size={"lg"}>
+                <Button className={"modal-button button-light"} onClick={handlePrevious} style={{visibility: !modalData.previousId ? 'hidden' : 'visible'}} size={"lg"}>
                     <FontAwesomeIcon icon={icon({name: "arrow-left-long"})} /> Previous
                 </Button>
-                <Button className={"button-light"} onClick={handleNext} style={{visibility: !modalData.nextId ? 'hidden' : 'visible'}} size={"lg"}>
+                <Button className={"modal-button button-light"} onClick={handleNext} style={{visibility: !modalData.nextId ? 'hidden' : 'visible'}} size={"lg"}>
                     Next <FontAwesomeIcon icon={icon({name: "arrow-right-long"})} />
                 </Button>
             </Modal.Footer>

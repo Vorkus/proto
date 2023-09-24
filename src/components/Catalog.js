@@ -1,5 +1,4 @@
 import ModelCard from "./ModelCard";
-import '../assets/Catalog.css';
 import VisualizationModal from "./VisualizationModal";
 import {useState} from "react";
 import MockData from "./MockData";
