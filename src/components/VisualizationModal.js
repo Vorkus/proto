@@ -4,6 +4,9 @@ import {Canvas} from "@react-three/fiber";
 import DetailScene from "./DetailScene";
 import {Loader, OrbitControls} from "@react-three/drei";
 import {Suspense, useState} from "react";
+import '../assets/buttons.css';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {icon} from "@fortawesome/fontawesome-svg-core/import.macro";
 
 export default function VisualizationModal({onHide, modalData, onNext, onPrevious}) {
     const [canvasKey, setCanvasKey] = useState(crypto.randomUUID());
@@ -31,7 +34,13 @@ export default function VisualizationModal({onHide, modalData, onNext, onPreviou
                     barStyles={{backgroundColor: "grey", color: "black"}}
                     dataStyles={{color: "black"}}
                 />
-                <Canvas key={canvasKey} camera={{position: [0,0,5000]}} frameloop="demand" visibility={modalData.show ? "visible" : "hidden"} >
+                <Canvas
+                    key={canvasKey}
+                    camera={{position: [0,0,5000]}}
+                    shadows
+                    frameloop="demand"
+                    visibility={modalData.show ? "visible" : "hidden"}
+                >
                     <Suspense>
                         <ambientLight color={"white"} intensity={2} />
                         <DetailScene
@@ -42,10 +51,13 @@ export default function VisualizationModal({onHide, modalData, onNext, onPreviou
                 </Canvas>
 
             </Modal.Body>
-            <Modal.Footer className={"title-gradient"}>
-                <Button onClick={handlePrevious} disabled={!modalData.previousId}>Previous</Button>
-                <Button onClick={handleNext} disabled={!modalData.nextId}>Next</Button>
-                <Button onClick={onHide}>Close</Button>
+            <Modal.Footer className={"title-gradient justify-content-between"}>
+                <Button className={"button-light"} onClick={handlePrevious} style={{visibility: !modalData.previousId ? 'hidden' : 'visible'}} size={"lg"}>
+                    <FontAwesomeIcon icon={icon({name: "arrow-left-long"})} /> Previous
+                </Button>
+                <Button className={"button-light"} onClick={handleNext} style={{visibility: !modalData.nextId ? 'hidden' : 'visible'}} size={"lg"}>
+                    Next <FontAwesomeIcon icon={icon({name: "arrow-right-long"})} />
+                </Button>
             </Modal.Footer>
         </Modal>
     );

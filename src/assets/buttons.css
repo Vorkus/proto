@@ -1,0 +1,13 @@
+.button-light,
+.button-light:disabled
+{
+    background-color: hsla(0,0%,100%,.6);
+    border: 2px solid white;
+    color: black;
+}
+
+.button-light:hover {
+    background-color: hsla(0,0%,100%,1);
+    border: 2px solid white;
+    color: black;
+}

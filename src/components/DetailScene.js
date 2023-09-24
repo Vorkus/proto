@@ -7,7 +7,7 @@ export default function DetailScene({modelUrl}) {
 
     return (
         <>
-            <ambientLight color={"white"} intensity={2} />
+            {/*<ambientLight color={"white"} intensity={2} />*/}
             {/*<directionalLight*/}
             {/*    color={"white"}*/}
             {/*    intensity={0.5}*/}
@@ -18,7 +18,7 @@ export default function DetailScene({modelUrl}) {
                 preset={"rembrandt"}
                 shadows={"contact"}
                 adjustCamera={1.2}
-                environment={"city"}
+                environment={"dawn"}
                 intensity={0.1}
             >
                 <Model
