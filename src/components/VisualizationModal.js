@@ -1,14 +1,16 @@
 import Modal from 'react-bootstrap/Modal';
-import {Button} from "react-bootstrap";
+import {Button, Form} from "react-bootstrap";
 import {Canvas} from "@react-three/fiber";
 import DetailScene from "./DetailScene";
 import {Loader, OrbitControls} from "@react-three/drei";
-import {Suspense} from "react";
-import '../styles/buttons.css';
+import {Suspense, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {icon} from "@fortawesome/fontawesome-svg-core/import.macro";
+import '../styles/buttons.css';
+import '../styles/VisualizationModal.css';
 
 export default function VisualizationModal({modalData, onHide, onPrevious, onNext}) {
+    const [preset, setPreset] = useState('default');
     async function handlePrevious() {
         onPrevious();
     }
@@ -30,6 +32,22 @@ export default function VisualizationModal({modalData, onHide, onPrevious, onNex
                     barStyles={{backgroundColor: "grey", color: "black"}}
                     dataStyles={{color: "black"}}
                 />
+                <Form.Select
+                    className={"preset-select ms-2 mt-2"}
+                    onChange={props => setPreset(props.target.value) }
+                    defaultValue={"default"}
+                >
+                    <option value={"default"}>3 lights</option>
+                    <option value={"apartment"}>Apartment</option>
+                    <option value={"city"}>City</option>
+                    <option value={"dawn"}>Dawn</option>
+                    <option value={"forest"}>Forest</option>
+                    <option value={"lobby"}>Lobby</option>
+                    <option value={"park"}>Park</option>
+                    <option value={"studio"}>Studio</option>
+                    <option value={"sunset"}>Sunset</option>
+                    <option value={"warehouse"}>Warehouse</option>
+                </Form.Select>
                 <Canvas
                     key={modalData.canvasKey}
                     camera={{ far: 2000, position: [0, 0, 3000] }}
@@ -40,6 +58,7 @@ export default function VisualizationModal({modalData, onHide, onPrevious, onNex
                     <Suspense>
                         <DetailScene
                             modelUrl={modalData.modelUrl}
+                            preset={preset}
                         />
                         <OrbitControls makeDefault />
                     </Suspense>

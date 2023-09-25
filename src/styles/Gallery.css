@@ -4,9 +4,16 @@
     z-index: -2;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 300%;
     height: 100%;
     background: linear-gradient(90deg, rgba(202, 177, 255, 1) 0%, rgba(163, 249, 255, 1) 74%, rgba(192, 255, 217, 1) 100%);
+    animation: gradient 10s linear infinite alternate;
+}
+
+@keyframes gradient {
+    100% {
+        transform: translateX(-66.66%);
+    }
 }
 
 .gallery-container.gallery-spacing {
