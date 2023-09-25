@@ -50,6 +50,7 @@ export default function VisualizationModal({modalData, onHide, onPrevious, onNex
                 </Form.Select>
                 <Canvas
                     key={modalData.canvasKey}
+                    className={"detailCanvas"}
                     camera={{ far: 2000, position: [0, 0, 3000] }}
                     shadows
                     frameloop="demand"
@@ -63,7 +64,15 @@ export default function VisualizationModal({modalData, onHide, onPrevious, onNex
                         <OrbitControls makeDefault />
                     </Suspense>
                 </Canvas>
-
+                <FontAwesomeIcon
+                    icon={icon({name: "expand"})}
+                    size={"2xl"}
+                    className={"expand-icon mb-4 me-4"}
+                    onMouseDown={async (props) => {
+                        console.log(document.getElementsByClassName("detailCanvas")[0]);
+                        await document.getElementsByClassName("detailCanvas")[0].requestFullscreen();
+                    }}
+                />
             </Modal.Body>
             <Modal.Footer className={"background-gradient justify-content-between"}>
                 <Button className={"modal-button button-light"} onClick={handlePrevious} style={{visibility: !modalData.previousId ? 'hidden' : 'visible'}} size={"lg"}>
