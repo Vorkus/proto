@@ -1,0 +1,8 @@
+Model Information:
+* title:	Emblem of “The Golden Head” pharmacy in Kraków
+* source:	https://sketchfab.com/3d-models/emblem-of-the-golden-head-pharmacy-in-krakow-4662d1ce1e8d46d58ee93b16dd173718
+* author:	Virtual Museums of Małopolska (https://sketchfab.com/WirtualneMuzeaMalopolski)
+
+Model License:
+* license type:	CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)
+* requirements:	Credit is not mandatory. Commercial use is allowed.

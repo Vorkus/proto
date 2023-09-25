@@ -32,13 +32,12 @@ export default function VisualizationModal({modalData, onHide, onPrevious, onNex
                 />
                 <Canvas
                     key={modalData.canvasKey}
-                    camera={{position: [0,0,5000]}}
+                    camera={{ far: 2000, position: [0, 0, 3000] }}
                     shadows
                     frameloop="demand"
                     visibility={modalData.show ? "visible" : "hidden"}
                 >
                     <Suspense>
-                        <ambientLight color={"white"} intensity={2} />
                         <DetailScene
                             modelUrl={modalData.modelUrl}
                         />

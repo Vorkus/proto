@@ -8,7 +8,7 @@ export default class MockData {
         {
             id: "2",
             imageUrl: "/preview-images/2/2.jpeg",
-            title: "Sculpture “Bust of Róża Loewenfeld”",
+            title: "Emblem of “The Golden Head” pharmacy in Kraków",
         },
         {
             id: "4",
