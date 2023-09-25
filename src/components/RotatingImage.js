@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../assets/RotatingImage.css';
+import '../styles/RotatingImage.css';
 
 export default function RotatingImage({imageUrl}) {
     const [backgroundPosition, setBackgroundPosition] = useState('0%');

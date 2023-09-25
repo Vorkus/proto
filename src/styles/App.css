@@ -1,0 +1,14 @@
+@import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import url("https://fonts.googleapis.com/css?family=Chakra+Petch:400,300,700");
+
+.App {
+    text-align: center;
+}
+
+body {
+    font-family: 'Chakra Petch', sans-serif !important;
+}
+
+.background-gradient {
+    background-image: linear-gradient(90deg, rgba(202, 177, 255, 1) 0%, rgba(163, 249, 255, 1) 74%, rgba(192, 255, 217, 1) 100%);
+}

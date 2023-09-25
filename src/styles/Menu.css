@@ -1,9 +1,11 @@
+/* For collapsed toggle */
 @import "buttons.css";
 
 .menu-nav.background-transparent {
     background-color: transparent !important;
 }
 
+/* Overwrite Bootstrap's */
 .navbar-collapse.collapse {
     flex-grow: 0;
 }

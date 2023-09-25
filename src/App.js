@@ -1,15 +1,22 @@
-import './assets/App.css';
-import Header from "./parts/Header";
-import Main from "./parts/Main";
+import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import Gallery from "./pages/Gallery";
+import Home from "./pages/Home";
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Home />,
+    },
+    {
+        path: "/gallery",
+        element: <Gallery />,
+    },
+]);
 
 function App() {
-  return (
-    <div className="App">
-        <Header />
-        <Main />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

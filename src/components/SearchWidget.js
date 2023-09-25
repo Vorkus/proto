@@ -1,18 +1,20 @@
-import '../assets/SearchWidget.css';
+import {useState} from "react";
+import {Badge, Form, Stack} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
-import {useState} from "react";
+import '../styles/SearchWidget.css';
+import '../styles/buttons.css';
 
 export default function SearchWidget() {
     const [inputValue, setinputValue] = useState('');
-    const [cancelButtonVisibility, setcancelButtonVisibility] = useState('hidden');
+    const [cancelButtonVisibility, setcancelButtonVisibility] = useState("hidden");
 
     function handleInputFocus() {
-        setcancelButtonVisibility('visible');
+        setcancelButtonVisibility("visible");
     }
 
     function handleInputBlur() {
-        setcancelButtonVisibility('hidden');
+        setcancelButtonVisibility("hidden");
     }
 
     function handleRemoveMouseDown(event) {
@@ -26,33 +28,39 @@ export default function SearchWidget() {
 
     return (
         <>
-            <form id={"modelSearch"} className={"d-flex search-form mb-2"}>
-                <label id={"modelSearchLabel"} htmlFor={"modelSearchInput"} className={"form-label"} hidden={true}>Model Search</label>
-                <input
-                    id={"modelSearchInput"}
-                    className={"search-input form-control"}
-                    onFocus={handleInputFocus}
-                    onBlur={handleInputBlur}
-                    onChange={handleInputChange}
-                    placeholder={"     "}
-                    value={inputValue}
-                    required
-                />
-                <FontAwesomeIcon
-                    className={"modelSearchRemove"}
-                    icon={icon({name: "xmark"})}
-                    style={{visibility: cancelButtonVisibility}}
-                    onMouseDown={handleRemoveMouseDown}
-                ></FontAwesomeIcon>
-                <FontAwesomeIcon className={"modelSearchButton"} icon={icon({name: 'magnifying-glass'})}></FontAwesomeIcon>
-            </form>
-            <div className={"d-flex justify-content-end help-badges mb-2 flex-wrap"}>
-                <span className="badge rounded-pill m-1">Statue</span>
-                <span className="badge rounded-pill m-1">Music</span>
-                <span className="badge rounded-pill m-1">Animal</span>
-                <span className="badge rounded-pill m-1">Armor</span>
-                <span className="badge rounded-pill m-1">Book</span>
-            </div>
+            <Form id={"modelSearch"} className={"mb-2"}>
+                <Form.Group className={"d-flex align-items-center"}>
+                    <Form.Label
+                        id={"modelSearchLabel"}
+                        htmlFor={"modelSearchInput"}
+                        hidden
+                    />
+                    <Form.Control
+                        id={"modelSearchInput"}
+                        className={"search-input"}
+                        onFocus={handleInputFocus}
+                        onBlur={handleInputBlur}
+                        onChange={handleInputChange}
+                        placeholder={"     "}
+                        value={inputValue}
+                        required
+                    />
+                    <FontAwesomeIcon
+                        className={"modelSearchRemove"}
+                        icon={icon({name: "xmark"})}
+                        style={{visibility: cancelButtonVisibility}}
+                        onMouseDown={handleRemoveMouseDown}
+                    ></FontAwesomeIcon>
+                    <FontAwesomeIcon className={"modelSearchButton"} icon={icon({name: 'magnifying-glass'})}></FontAwesomeIcon>
+                </Form.Group>
+            </Form>
+            <Stack direction={"horizontal"} gap={2} className={"px-3"}>
+                <Badge pill bg={"none"} className={"ms-auto button-light"}>Statue</Badge>
+                <Badge pill bg={"none"} className={"button-light"}>Music</Badge>
+                <Badge pill bg={"none"} className={"button-light"}>Animal</Badge>
+                <Badge pill bg={"none"} className={"button-light"}>Book</Badge>
+                <Badge pill bg={"none"} className={"button-light"}>Armor</Badge>
+            </Stack>
         </>
     );
 }

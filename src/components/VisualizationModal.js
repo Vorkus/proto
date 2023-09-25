@@ -3,27 +3,23 @@ import {Button} from "react-bootstrap";
 import {Canvas} from "@react-three/fiber";
 import DetailScene from "./DetailScene";
 import {Loader, OrbitControls} from "@react-three/drei";
-import {Suspense, useState} from "react";
-import '../assets/buttons.css';
+import {Suspense} from "react";
+import '../styles/buttons.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {icon} from "@fortawesome/fontawesome-svg-core/import.macro";
 
-export default function VisualizationModal({onHide, modalData, onNext, onPrevious}) {
-    const [canvasKey, setCanvasKey] = useState(crypto.randomUUID());
-
+export default function VisualizationModal({modalData, onHide, onPrevious, onNext}) {
     async function handlePrevious() {
-        setCanvasKey(crypto.randomUUID());
         onPrevious();
     }
 
     async function handleNext() {
-        setCanvasKey(crypto.randomUUID());
         onNext();
     }
 
     return (
-        <Modal show={modalData.show} fullscreen={true} onHide={onHide}>
-            <Modal.Header className={"title-gradient"} closeButton>
+        <Modal show={modalData.show} fullscreen onHide={onHide}>
+            <Modal.Header className={"background-gradient"} closeButton>
                 <Modal.Title>
                     {modalData.title}
                 </Modal.Title>
@@ -35,7 +31,7 @@ export default function VisualizationModal({onHide, modalData, onNext, onPreviou
                     dataStyles={{color: "black"}}
                 />
                 <Canvas
-                    key={canvasKey}
+                    key={modalData.canvasKey}
                     camera={{position: [0,0,5000]}}
                     shadows
                     frameloop="demand"
@@ -51,7 +47,7 @@ export default function VisualizationModal({onHide, modalData, onNext, onPreviou
                 </Canvas>
 
             </Modal.Body>
-            <Modal.Footer className={"title-gradient justify-content-between"}>
+            <Modal.Footer className={"background-gradient justify-content-between"}>
                 <Button className={"modal-button button-light"} onClick={handlePrevious} style={{visibility: !modalData.previousId ? 'hidden' : 'visible'}} size={"lg"}>
                     <FontAwesomeIcon icon={icon({name: "arrow-left-long"})} /> Previous
                 </Button>

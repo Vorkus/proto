@@ -13,7 +13,6 @@
     text-decoration-color: black;
     text-decoration-thickness: 0.2rem;
     padding-left: 1rem;
-    caret-shape: block;
 }
 
 #modelSearchInput:invalid {
@@ -31,7 +30,7 @@
 }
 
 .modelSearchButton {
-    padding-right: 5%;
+    padding-right: 3%;
     font-size: 1.4rem;
 }
 

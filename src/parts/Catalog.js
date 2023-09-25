@@ -1,7 +1,8 @@
-import ModelCard from "./ModelCard";
-import VisualizationModal from "./VisualizationModal";
 import {useState} from "react";
-import MockData from "./MockData";
+import ModelCard from "../components/ModelCard";
+import VisualizationModal from "../components/VisualizationModal";
+import MockData from "../assets/MockData";
+import {Col, Container, Row} from "react-bootstrap";
 
 export default function Catalog() {
     const [modalData, setModalData] = useState({});
@@ -11,10 +12,10 @@ export default function Catalog() {
     }
 
     function updateModalData(id) {
-        const itemData = MockData.getData(id);
         setModalData({
             show: true,
-            title: itemData.title,
+            title: MockData.getData(id).title,
+            canvasKey: crypto.randomUUID(),
             modelUrl: `/3d_models/${id}/scene.gltf`,
             nextId: MockData.getNextId(id),
             previousId: MockData.getPreviousId(id),
@@ -22,24 +23,23 @@ export default function Catalog() {
     }
 
     return (
-        <section className={ 'container-fluid no-gutters model-section' }>
+        <Container fluid className={"no-gutters"}>
             <VisualizationModal
-                updateModalData={updateModalData}
                 modalData={modalData}
                 onHide={() => setModalData({show: false})}
-                onNext={() => updateModalData(modalData.nextId)}
                 onPrevious={() => updateModalData(modalData.previousId)}
+                onNext={() => updateModalData(modalData.nextId)}
             />
-            <div className={'row pb-2'}>
-                <h2 className={'text-start'}>360º Preview models</h2>
-                <hr />
-            </div>
-            <div className={ 'row' }>
+            <Container fluid className={"p-0"}>
+                <h2 className={"text-start m-0"}>360º Preview models</h2>
+                <hr className={"mt-1 mb-4"} />
+            </Container>
+            <Row>
                 {
                     MockData.getData().map(data => (
-                        <div
+                        <Col
                             key={crypto.randomUUID()}
-                            className={ 'col-md-3 col-12 pb-4' }
+                            md={3} className={"pb-4"}
                         >
                             <ModelCard
                                 modelData={{
@@ -49,10 +49,10 @@ export default function Catalog() {
                                 }}
                                 handleClick={handleCardClick}
                             />
-                        </div>
+                        </Col>
                     ))
                 }
-            </div>
-        </section>
+            </Row>
+        </Container>
     );
 }
