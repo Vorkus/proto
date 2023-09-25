@@ -68,8 +68,7 @@ export default function VisualizationModal({modalData, onHide, onPrevious, onNex
                     icon={icon({name: "expand"})}
                     size={"2xl"}
                     className={"expand-icon mb-4 me-4"}
-                    onMouseDown={async (props) => {
-                        console.log(document.getElementsByClassName("detailCanvas")[0]);
+                    onMouseDown={async () => {
                         await document.getElementsByClassName("detailCanvas")[0].requestFullscreen();
                     }}
                 />
