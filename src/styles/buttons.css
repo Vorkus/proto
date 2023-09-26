@@ -1,0 +1,24 @@
+.button-light,
+.button-light:disabled
+{
+    background-color: hsla(0,0%,100%,.6);
+    border: 2px solid white;
+    color: black;
+}
+
+.navbar-toggler.button-light:focus {
+    box-shadow: 0 0 0 0.25rem white;
+}
+
+.navbar-toggler.button-light.collapsed:focus,
+.button-light.collapsed {
+    box-shadow: 0 0;
+}
+
+.modal-button.button-light:hover,
+.modal-button.button-light:active
+{
+    background-color: hsla(0,0%,100%,1);
+    border: 2px solid white;
+    color: black;
+}
