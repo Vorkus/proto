@@ -1,6 +1,6 @@
 .preset-select {
     position: absolute;
-    width: 10vw;
+    width: auto;
     z-index: 1;
 }
 
