@@ -1,16 +1,18 @@
 import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {createHashRouter, RouterProvider} from "react-router-dom";
+import {createBrowserRouter, createHashRouter, RouterProvider} from "react-router-dom";
 import Gallery from "./routes/Gallery";
 import Home from "./routes/Home";
 
-const router = createHashRouter([
+export const basePath = '/Proto'
+
+const router = createBrowserRouter([
     {
-        path: "/Proto",
+        path: `${basePath}/`,
         element: <Home />,
     },
     {
-        path: "/Proto/gallery",
+        path: `${basePath}/gallery`,
         element: <Gallery />,
     },
 ]);

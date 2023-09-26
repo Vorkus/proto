@@ -3,6 +3,7 @@ import ModelCard from "../components/ModelCard";
 import VisualizationModal from "../components/VisualizationModal";
 import MockData from "../assets/MockData";
 import {Col, Container, Row} from "react-bootstrap";
+import {basePath} from "../App";
 
 export default function Catalog() {
     const [modalData, setModalData] = useState({});
@@ -16,7 +17,7 @@ export default function Catalog() {
             show: true,
             title: MockData.getData(id).title,
             canvasKey: crypto.randomUUID(),
-            modelUrl: `Proto/3d_models/${id}/scene.gltf`,
+            modelUrl: `${basePath}/3d_models/${id}/scene.gltf`,
             nextId: MockData.getNextId(id),
             previousId: MockData.getPreviousId(id),
         });
