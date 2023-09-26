@@ -6,11 +6,11 @@ import Home from "./routes/Home";
 
 const router = createHashRouter([
     {
-        path: "/Proto",
+        path: "/",
         element: <Home />,
     },
     {
-        path: "/Proto/gallery",
+        path: "/gallery",
         element: <Gallery />,
     },
 ]);
