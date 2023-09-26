@@ -4,15 +4,13 @@ import {createBrowserRouter, createHashRouter, RouterProvider} from "react-route
 import Gallery from "./routes/Gallery";
 import Home from "./routes/Home";
 
-export const basePath = '/Proto'
-
 const router = createBrowserRouter([
     {
-        path: `${basePath}/`,
+        path: "/Proto",
         element: <Home />,
     },
     {
-        path: `${basePath}/gallery`,
+        path: "/Proto/gallery",
         element: <Gallery />,
     },
 ]);

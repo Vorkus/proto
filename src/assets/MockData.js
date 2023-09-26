@@ -1,60 +1,58 @@
-import {basePath} from "../App";
-
 export default class MockData {
     static #mockData = [
         {
             id: "5",
-            imageUrl: `${basePath}/preview-images/5/5.jpeg`,
+            imageUrl: "/Proto/preview-images/5/5.jpeg",
             title: "Hydria apothecary vase",
         },
         {
             id: "2",
-            imageUrl: `${basePath}/preview-images/2/2.jpeg`,
+            imageUrl: "/Proto/preview-images/2/2.jpeg",
             title: "Emblem of “The Golden Head” pharmacy in Kraków",
         },
         {
             id: "4",
-            imageUrl: `${basePath}/preview-images/4/4.jpeg`,
+            imageUrl: "/Proto/preview-images/4/4.jpeg",
             title: "Violin",
         },
         {
             id: "3",
-            imageUrl: `${basePath}/preview-images/3/3.jpeg`,
+            imageUrl: "/Proto/preview-images/3/3.jpeg",
             title: "Priest Karol Wojtyła’s sports shoes",
         },
         {
             id: "1",
-            imageUrl: `${basePath}/preview-images/1/1.jpeg`,
+            imageUrl: "/Proto/preview-images/1/1.jpeg",
             title: "Apollo and Daphne",
         },
         {
             id: "11",
-            imageUrl: `${basePath}/preview-images/11/11.jpeg`,
+            imageUrl: "/Proto/preview-images/11/11.jpeg",
             title: "Netsuke - Snake curled around a turtle",
         },
         {
             id: "6",
-            imageUrl: `${basePath}/preview-images/6/6.jpeg`,
+            imageUrl: "/Proto/preview-images/6/6.jpeg",
             title: "Shengding Food Vessel, around 575 BCE",
         },
         {
             id: "7",
-            imageUrl: `${basePath}/preview-images/7/7.jpeg`,
+            imageUrl: "/Proto/preview-images/7/7.jpeg",
             title: "Water-Moon Guanyin",
         },
         {
             id: "8",
-            imageUrl: `${basePath}/preview-images/8/8.jpeg`,
+            imageUrl: "/Proto/preview-images/8/8.jpeg",
             title: "Orbiter Space Shuttle OV-103 Discovery",
         },
         {
             id: "9",
-            imageUrl: `${basePath}/preview-images/9/9.jpeg`,
+            imageUrl: "/Proto/preview-images/9/9.jpeg",
             title: "Coptic prayer book",
         },
         {
             id: "10",
-            imageUrl: `${basePath}/preview-images/10/10.jpeg`,
+            imageUrl: "/Proto/preview-images/10/10.jpeg",
             title: "Löwe",
         },
     ];
