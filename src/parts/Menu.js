@@ -15,7 +15,7 @@ export default function Menu() {
                     <Navbar.Collapse id="responsive-navbar-nav" className={"pt-2"}>
                         <Nav className={"text-md-start text-center"}>
                             <hr/>
-                            <Nav.Link className={"menu-link"} href="/gallery"><strong>Gallery</strong></Nav.Link>
+                            <Nav.Link className={"menu-link"} href="/Proto/gallery"><strong>Gallery</strong></Nav.Link>
                             <Nav.Link className={"menu-link"} href="#"><strong>Our community</strong></Nav.Link>
                             <Nav.Link className={"menu-link"} href="#"><strong>About us</strong></Nav.Link>
                             <hr/>
