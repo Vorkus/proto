@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/%7Brepo-name%7D/static/css/main.6ce2b1dd.css",
-    "main.js": "/%7Brepo-name%7D/static/js/main.adf1f42c.js",
-    "static/js/27.c7fa2809.chunk.js": "/%7Brepo-name%7D/static/js/27.c7fa2809.chunk.js",
-    "index.html": "/%7Brepo-name%7D/index.html"
+    "main.css": "/Proto/static/css/main.6ce2b1dd.css",
+    "main.js": "/Proto/static/js/main.38c92751.js",
+    "static/js/27.c7fa2809.chunk.js": "/Proto/static/js/27.c7fa2809.chunk.js",
+    "index.html": "/Proto/index.html"
   },
   "entrypoints": [
     "static/css/main.6ce2b1dd.css",
-    "static/js/main.adf1f42c.js"
+    "static/js/main.38c92751.js"
   ]
 }
