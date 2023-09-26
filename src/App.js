@@ -1,16 +1,16 @@
 import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {createHashRouter, RouterProvider} from "react-router-dom";
-import Gallery from "./pages/Gallery";
-import Home from "./pages/Home";
+import Gallery from "./routes/Gallery";
+import Home from "./routes/Home";
 
 const router = createHashRouter([
     {
-        path: "/",
+        path: "/Proto",
         element: <Home />,
     },
     {
-        path: "/gallery",
+        path: "/Proto/gallery",
         element: <Gallery />,
     },
 ]);
