@@ -7,9 +7,9 @@ export default function Menu() {
         <>
             <Navbar collapseOnSelect expand="lg" className="menu-nav background-transparent bg-body-tertiary pb-4">
                 <Container fluid className={"p-0"}>
-                    <Navbar.Brand href="/" className={"m-0"}>
+                    <Navbar.Brand href="/Proto" className={"m-0"}>
                         <Logo />
-                        <span className={"ms-3"}><strong>Model world</strong></span>
+                        <span className={"ms-3"}><strong>Model world!</strong></span>
                     </Navbar.Brand>
                     <Navbar.Toggle className={"button-light"} aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav" className={"pt-2"}>
