@@ -17,7 +17,10 @@ export default function ModelCard({modelInformation, onClick })
             id={modelInformation.id}
             onClick={onClick}
         >
-            <RotatingImage imageUrl={modelInformation.imageUrl}/>
+            <RotatingImage
+                imageUrl={modelInformation.imageUrl}
+                isAnimated={modelInformation.hasAnimation}
+            />
             <Card.Body className={"p-2"}>
                 <Container fluid className={"px-0 d-flex align-items-center justify-content-between"}>
                     <img

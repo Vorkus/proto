@@ -8,10 +8,7 @@ export default class MockData {
                 url: "/proto/3d_models/12/scene.gltf",
                 shadows: false,
                 frameloop: "always",
-                animations: [
-                    "Armature|IdleGround",
-
-                ],
+                hasAnimations: true,
             },
         },
         {
@@ -22,7 +19,7 @@ export default class MockData {
                 url: "/proto/3d_models/5/scene.gltf",
                 shadows: "contact",
                 frameloop: "demand",
-                animations: [],
+                hasAnimations: false,
             },
         },
         {
@@ -33,7 +30,7 @@ export default class MockData {
                 url: "/proto/3d_models/2/scene.gltf",
                 shadows: "contact",
                 frameloop: "demand",
-                animations: [],
+                hasAnimations: false,
             },
         },
         {
@@ -44,7 +41,7 @@ export default class MockData {
                 url: "/proto/3d_models/4/scene.gltf",
                 shadows: "contact",
                 frameloop: "demand",
-                animations: [],
+                hasAnimations: false,
             },
         },
         {
@@ -55,7 +52,7 @@ export default class MockData {
                 url: "/proto/3d_models/3/scene.gltf",
                 shadows: "contact",
                 frameloop: "demand",
-                animations: [],
+                hasAnimations: false,
             },
         },
         {
@@ -66,7 +63,7 @@ export default class MockData {
                 url: "/proto/3d_models/1/scene.gltf",
                 shadows: "contact",
                 frameloop: "demand",
-                animations: [],
+                hasAnimations: false,
             },
         },
         {
@@ -77,7 +74,7 @@ export default class MockData {
                 url: "/proto/3d_models/11/scene.gltf",
                 shadows: "contact",
                 frameloop: "demand",
-                animations: [],
+                hasAnimations: false,
             },
         },
         {
@@ -88,7 +85,7 @@ export default class MockData {
                 url: "/proto/3d_models/6/scene.gltf",
                 shadows: "contact",
                 frameloop: "demand",
-                animations: [],
+                hasAnimations: false,
             },
         },
         {
@@ -99,7 +96,7 @@ export default class MockData {
                 url: "/proto/3d_models/7/scene.gltf",
                 shadows: "contact",
                 frameloop: "demand",
-                animations: [],
+                hasAnimations: false,
             },
         },
         {
@@ -110,7 +107,7 @@ export default class MockData {
                 url: "/proto/3d_models/8/scene.gltf",
                 shadows: "contact",
                 frameloop: "demand",
-                animations: [],
+                hasAnimations: false,
             },
         },
         {
@@ -121,7 +118,7 @@ export default class MockData {
                 url: "/proto/3d_models/9/scene.gltf",
                 shadows: "contact",
                 frameloop: "demand",
-                animations: [],
+                hasAnimations: false,
             },
         },
         {
@@ -132,7 +129,7 @@ export default class MockData {
                 url: "/proto/3d_models/10/scene.gltf",
                 shadows: "contact",
                 frameloop: "demand",
-                animations: [],
+                hasAnimations: false,
             },
         },
     ];

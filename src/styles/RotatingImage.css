@@ -3,3 +3,11 @@
     aspect-ratio: 16/9;
     background-size: cover;
 }
+
+.animation-tag {
+    position: absolute;
+    background-color: black;
+    width: 100px;
+    color: rgb(84, 243, 195);
+    border-radius: 5px;
+}

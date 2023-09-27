@@ -20,6 +20,7 @@ export default function Catalog() {
                         id: data.id,
                         title: data.title,
                         imageUrl: data.imageUrl,
+                        hasAnimation: data.modelData.hasAnimations,
                     }}
                     onClick={onShowModel}
                 />
