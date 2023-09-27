@@ -10,8 +10,10 @@ import '../styles/buttons.css';
 import '../styles/VisualizationModal.css';
 import ConfigurationPanel from "./ConfigurationPanel";
 
-export default function VisualizationModal({modalData, onHide, onPrevious, onNext}) {
-    const [preset, setPreset] = useState('default');
+export default function VisualizationModal({modalData, onHide, onPrevious, onNext, refreshModalData}) {
+    const [configuration, setConfiguration] = useState({preset: "default", animation: null});
+    const [animationsOptions, setAnimationsOptions] = useState([]);
+
     async function handlePrevious() {
         onPrevious();
     }
@@ -35,7 +37,13 @@ export default function VisualizationModal({modalData, onHide, onPrevious, onNex
                 />
 
                 <ConfigurationPanel
-                    onPresetChange={props => setPreset(props.target.value)}
+                    handlePresetChange={props => setConfiguration({preset: props.target.value, animation: configuration.animation})}
+                    handleAnimationChange={props => {
+                        setConfiguration({preset: configuration.preset, animation: props.target.value})
+                        console.log(modalData);
+                        refreshModalData()
+                    }}
+                    animationsLabels={animationsOptions}
                 />
 
                 <Canvas
@@ -49,7 +57,9 @@ export default function VisualizationModal({modalData, onHide, onPrevious, onNex
                     <Suspense>
                         <DetailScene
                             modelData={modalData.modelData}
-                            preset={preset}
+                            setAnimationOptions={setAnimationsOptions}
+                            animationsOptions={animationsOptions}
+                            configuration={configuration}
                         />
                         <OrbitControls makeDefault />
                     </Suspense>

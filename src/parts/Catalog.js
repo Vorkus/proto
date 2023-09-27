@@ -13,6 +13,7 @@ export default function Catalog() {
 
     function updateModalData(id) {
         setModalData({
+            id: id,
             show: true,
             title: MockData.getData(id).title,
             canvasKey: crypto.randomUUID(),
@@ -29,6 +30,7 @@ export default function Catalog() {
                 onHide={() => setModalData({show: false})}
                 onPrevious={() => updateModalData(modalData.previousId)}
                 onNext={() => updateModalData(modalData.nextId)}
+                refreshModalData={() => updateModalData(modalData.id)}
             />
             <Container fluid className={"p-0"}>
                 <h2 className={"text-start m-0"}>360º Preview models</h2>
@@ -38,7 +40,7 @@ export default function Catalog() {
                 {
                     MockData.getData().map(data => (
                         <Col
-                            key={crypto.randomUUID()}
+                            key={data.id}
                             md={3} className={"pb-4"}
                         >
                             <ModelCard

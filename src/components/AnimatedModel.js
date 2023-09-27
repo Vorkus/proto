@@ -2,7 +2,7 @@ import {useAnimations, useGLTF} from "@react-three/drei";
 import {useFrame} from "@react-three/fiber";
 import {useEffect, useRef} from "react";
 
-export default function AnimatedModel({url}) {
+export default function AnimatedModel({url, setAnimationOptions, animationsOptions, currentAnimation}) {
     // const gltf = useGLTF(url);
     // const scene = useRef(gltf.scene);
     //
@@ -28,11 +28,24 @@ export default function AnimatedModel({url}) {
     const { scene, animations } = useGLTF(url)
     const { actions } = useAnimations(animations, scene)
 
+    const currentAnimationsOptions = animations.map(animation => animation.name);
+    if (JSON.stringify(currentAnimationsOptions) !== JSON.stringify(animationsOptions)) {
+        setAnimationOptions(animations.map(animation => animation.name));
+    }
+    console.log(animationsOptions);
+
     useEffect(() => {
-        actions["Armature|Roar"].play()
+        // for (const actionName in actions) {
+        //     actions[actionName].play();
+        // }
+        // actions["Armature|IdleGround"].play()
+        // actions["Armature|RiseUp"].play()
+        // actions["Armature|Roar"].play()
+        // actions["Armature|RoarToWalk"].play()
+        // actions["Armature|Walk"].play()
+        // actions["Armature|Fall"].play()
+        currentAnimation ? actions[currentAnimation].play() : actions[animations[0].name].play();
     })
-    console.log(animations);
-    console.log(actions);
 
     return <primitive object={scene} />
 }

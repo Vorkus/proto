@@ -1,18 +1,73 @@
 import Card from "react-bootstrap/Card";
-import {Button, Col, Collapse, Container, Form, Row} from "react-bootstrap";
+import {Button, Col, Collapse, Container, Row} from "react-bootstrap";
 import {useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {icon} from "@fortawesome/fontawesome-svg-core/import.macro";
+import ConfigurationSelect from "./ConfigurationSelect";
 
-export default function ConfigurationPanel({onPresetChange, onAnimationChange}) {
+export default function ConfigurationPanel({handlePresetChange, handleAnimationChange, animationsLabels}) {
     const [open, setOpen] = useState(true);
+
+    const presetsOptions = [
+        {
+            id: 0,
+            value: "default",
+            label: "3 lights"
+        },
+        {
+            id: 1,
+            value: "apartment",
+            label: "Apartment"
+        },
+        {
+            id: 2,
+            value: "city",
+            label: "City"
+        },
+        {
+            id: 3,
+            value: "dawn",
+            label: "Dawn"
+        },
+        {
+            id: 4,
+            value: "forest",
+            label: "Forest"
+        },
+        {
+            id: 5,
+            value: "lobby",
+            label: "Lobby"
+        },
+        {
+            id: 6,
+            value: "park",
+            label: "Park"
+        },
+        {
+            id: 7,
+            value: "sunset",
+            label: "Sunset"
+        },
+        {
+            id: 8,
+            value: "warehouse",
+            label: "Warehouse"
+        },
+    ];
+    const animationsOptions = animationsLabels.map((value, key) => {
+        return {
+            id: key,
+            value: value,
+            label: value,
+        }
+    })
 
     return (
         <>
             <Button
                 className={"toggle-button btn-light ms-2 my-2"}
                 onClick={() => setOpen(!open)}
-                aria-controls="example-collapse-text"
                 aria-expanded={open}
             >
                 <FontAwesomeIcon icon={icon({name: "cog"})}/>
@@ -25,47 +80,20 @@ export default function ConfigurationPanel({onPresetChange, onAnimationChange}) 
                                 <Card.Body>
                                     <Row className={"pb-2"}>
                                         <Col>
-                                            <Form.Group>
-                                                <Form.Label><strong>Preset: </strong></Form.Label>
-                                                <Form.Select
-                                                    className={"preset-select"}
-                                                    onChange={onPresetChange}
-                                                    defaultValue={"default"}
-                                                >
-                                                    <option value={"default"}>3 lights</option>
-                                                    <option value={"apartment"}>Apartment</option>
-                                                    <option value={"city"}>City</option>
-                                                    <option value={"dawn"}>Dawn</option>
-                                                    <option value={"forest"}>Forest</option>
-                                                    <option value={"lobby"}>Lobby</option>
-                                                    <option value={"park"}>Park</option>
-                                                    <option value={"studio"}>Studio</option>
-                                                    <option value={"sunset"}>Sunset</option>
-                                                    <option value={"warehouse"}>Warehouse</option>
-                                                </Form.Select>
-                                            </Form.Group>
+                                            <ConfigurationSelect
+                                                label={"Preset:"}
+                                                options={presetsOptions}
+                                                handleChange={handlePresetChange}
+                                            />
                                         </Col>
                                     </Row>
                                     <Row>
                                         <Col>
-                                            <Form.Group>
-                                                <Form.Label><strong>Animations: </strong></Form.Label>
-                                                <Form.Select
-                                                    className={"preset-select"}
-                                                    defaultValue={"default"}
-                                                >
-                                                    <option value={"default"}>3 lights</option>
-                                                    <option value={"apartment"}>Apartment</option>
-                                                    <option value={"city"}>City</option>
-                                                    <option value={"dawn"}>Dawn</option>
-                                                    <option value={"forest"}>Forest</option>
-                                                    <option value={"lobby"}>Lobby</option>
-                                                    <option value={"park"}>Park</option>
-                                                    <option value={"studio"}>Studio</option>
-                                                    <option value={"sunset"}>Sunset</option>
-                                                    <option value={"warehouse"}>Warehouse</option>
-                                                </Form.Select>
-                                            </Form.Group>
+                                            <ConfigurationSelect
+                                                label={"Animations:"}
+                                                options={animationsOptions}
+                                                handleChange={handleAnimationChange}
+                                            />
                                         </Col>
                                     </Row>
                                 </Card.Body>
