@@ -1,7 +1,7 @@
 {
   "name": "proto",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://vorkus.github.io/proto",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
@@ -35,7 +35,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
