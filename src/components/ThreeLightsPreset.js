@@ -1,19 +1,21 @@
 import {Bounds, Center, ContactShadows} from "@react-three/drei";
-import Model from "./Model";
+import StaticModel from "./StaticModel";
 import {useCallback, useState} from "react";
 
-export default function ThreeLightsPreset({modelUrl}) {
+export default function ThreeLightsPreset({model, shadows}) {
     const [{scale, far, height}, setShadows] = useState({scale: 0, far: 0, height: 0});
     const onCentered = useCallback(props => {
-        const radius = props.boundingSphere.radius;
-        setShadows({
-            scale: radius * 4,
-            far: radius,
-            height: props.height,
-        });
-    }, []);
+        if ("contact" === shadows) {
+            const radius = props.boundingSphere.radius;
+            setShadows({
+                scale: radius * 4,
+                far: radius,
+                height: props.height,
+            });
+        }
+    }, [shadows]);
 
-    if (!modelUrl) return null;
+    if (!model) return null;
 
     return (
         <>
@@ -42,7 +44,8 @@ export default function ThreeLightsPreset({modelUrl}) {
             <ContactShadows position={[0, -height/2, 0]} scale={scale} far={far} blur={2} />
             <Bounds clip fit observe>
                 <Center onCentered={onCentered}>
-                    <Model url={modelUrl}/>
+                    {model}
+                    {/*<StaticModel url={modelUrl}/>*/}
                 </Center>
             </Bounds>
         </>

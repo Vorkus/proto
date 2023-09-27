@@ -16,7 +16,7 @@ export default function Catalog() {
             show: true,
             title: MockData.getData(id).title,
             canvasKey: crypto.randomUUID(),
-            modelUrl: `/proto/3d_models/${id}/scene.gltf`,
+            modelData: MockData.getData(id).modelData,
             nextId: MockData.getNextId(id),
             previousId: MockData.getPreviousId(id),
         });

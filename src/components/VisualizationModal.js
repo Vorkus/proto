@@ -1,5 +1,5 @@
 import Modal from 'react-bootstrap/Modal';
-import {Button, Form} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 import {Canvas} from "@react-three/fiber";
 import DetailScene from "./DetailScene";
 import {Loader, OrbitControls} from "@react-three/drei";
@@ -8,6 +8,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {icon} from "@fortawesome/fontawesome-svg-core/import.macro";
 import '../styles/buttons.css';
 import '../styles/VisualizationModal.css';
+import ConfigurationPanel from "./ConfigurationPanel";
 
 export default function VisualizationModal({modalData, onHide, onPrevious, onNext}) {
     const [preset, setPreset] = useState('default');
@@ -32,33 +33,22 @@ export default function VisualizationModal({modalData, onHide, onPrevious, onNex
                     barStyles={{backgroundColor: "grey", color: "black"}}
                     dataStyles={{color: "black"}}
                 />
-                <Form.Select
-                    className={"preset-select ms-2 mt-2"}
-                    onChange={props => setPreset(props.target.value) }
-                    defaultValue={"default"}
-                >
-                    <option value={"default"}>3 lights</option>
-                    <option value={"apartment"}>Apartment</option>
-                    <option value={"city"}>City</option>
-                    <option value={"dawn"}>Dawn</option>
-                    <option value={"forest"}>Forest</option>
-                    <option value={"lobby"}>Lobby</option>
-                    <option value={"park"}>Park</option>
-                    <option value={"studio"}>Studio</option>
-                    <option value={"sunset"}>Sunset</option>
-                    <option value={"warehouse"}>Warehouse</option>
-                </Form.Select>
+
+                <ConfigurationPanel
+                    onPresetChange={props => setPreset(props.target.value)}
+                />
+
                 <Canvas
                     key={modalData.canvasKey}
                     className={"detailCanvas"}
                     camera={{ far: 2000, position: [0, 0, 3000] }}
-                    shadows
-                    frameloop="demand"
+                    // shadows
+                    frameloop={modalData.show ? modalData.modelData.frameloop : "always"}
                     visibility={modalData.show ? "visible" : "hidden"}
                 >
                     <Suspense>
                         <DetailScene
-                            modelUrl={modalData.modelUrl}
+                            modelData={modalData.modelData}
                             preset={preset}
                         />
                         <OrbitControls makeDefault />

@@ -1,15 +1,26 @@
 import Preset from "./Preset";
 import ThreeLightsPreset from "./ThreeLightsPreset";
+import StaticModel from "./StaticModel";
+import AnimatedModel from "./AnimatedModel";
 
-export default function DetailScene({modelUrl, preset}) {
-    if (!modelUrl || !preset) return null;
+export default function DetailScene({modelData, preset}) {
+    if (!modelData || !preset) return null;
+
+    let model;
+
+    if (modelData.hasAnimations) {
+        model = <AnimatedModel url={modelData.url}/>
+    } else {
+        model = <StaticModel url={modelData.url}/>
+    }
 
     let scene;
     if ("default" === preset) {
         scene = () => {
             return (
                 <ThreeLightsPreset
-                    modelUrl={modelUrl}
+                    model={model}
+                    shadows={modelData.shadows}
                 />
             );
 
@@ -18,7 +29,8 @@ export default function DetailScene({modelUrl, preset}) {
         scene = () => {
             return (
                 <Preset
-                    modelUrl={modelUrl}
+                    model={model}
+                    shadows={modelData.shadows}
                     environment={preset}
                 />
             );

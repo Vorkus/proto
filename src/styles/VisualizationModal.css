@@ -1,5 +1,16 @@
-.preset-select {
+.toggle-button {
     position: absolute;
+    z-index: 2;
+}
+
+.configuration-container {
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+}
+
+.preset-select {
+    position: relative;
     width: auto;
     z-index: 1;
 }
