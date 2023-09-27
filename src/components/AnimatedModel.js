@@ -29,10 +29,13 @@ export default function AnimatedModel({url, setAnimationOptions, animationsOptio
     const { actions } = useAnimations(animations, scene)
 
     const currentAnimationsOptions = animations.map(animation => animation.name);
-    if (JSON.stringify(currentAnimationsOptions) !== JSON.stringify(animationsOptions)) {
-        setAnimationOptions(animations.map(animation => animation.name));
-    }
-    console.log(animationsOptions);
+
+    console.log(animations.map(animation => animation.name));
+
+    // if (JSON.stringify(currentAnimationsOptions) !== JSON.stringify(animationsOptions)) {
+    //     setAnimationOptions(animations.map(animation => animation.name));
+    // }
+    // console.log(animationsOptions);
 
     useEffect(() => {
         // for (const actionName in actions) {

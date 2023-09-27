@@ -10,23 +10,21 @@ import '../styles/buttons.css';
 import '../styles/VisualizationModal.css';
 import ConfigurationPanel from "./ConfigurationPanel";
 
-export default function VisualizationModal({modalData, onHide, onPrevious, onNext, refreshModalData}) {
-    const [configuration, setConfiguration] = useState({preset: "default", animation: null});
-    const [animationsOptions, setAnimationsOptions] = useState([]);
+export default function VisualizationModal({data, onHide, onPrevious, onNext, onPresetChange, onAnimationChange}) {
+    // const [configuration, setConfiguration] = useState({preset: "default", animation: null});
+    // const [animationsOptions, setAnimationsOptions] = useState([]);
 
-    async function handlePrevious() {
-        onPrevious();
+    if (!data) {
+        return null;
     }
 
-    async function handleNext() {
-        onNext();
-    }
+    console.log("entro VisualizationModal", data);
 
     return (
-        <Modal show={modalData.show} fullscreen onHide={onHide}>
+        <Modal show fullscreen onHide={onHide}>
             <Modal.Header className={"background-gradient"} closeButton>
                 <Modal.Title>
-                    {modalData.title}
+                    {data.title}
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body id={"canvasContainer"} className={"p-0"}>
@@ -37,29 +35,32 @@ export default function VisualizationModal({modalData, onHide, onPrevious, onNex
                 />
 
                 <ConfigurationPanel
-                    handlePresetChange={props => setConfiguration({preset: props.target.value, animation: configuration.animation})}
-                    handleAnimationChange={props => {
-                        setConfiguration({preset: configuration.preset, animation: props.target.value})
-                        console.log(modalData);
-                        refreshModalData()
-                    }}
-                    animationsLabels={animationsOptions}
+                    animations={data.animations}
+                    onPresetChange={onPresetChange}
+                    onAnimationChange={onAnimationChange}
+                    // onAnimationChange={props => {
+                    //     setConfiguration({preset: configuration.preset, animation: props.target.value})
+                    //     console.log(modalData);
+                    //     refreshModalData()
+                    // }}
+                    // animationsLabels={animationsOptions}
                 />
 
                 <Canvas
-                    key={modalData.canvasKey}
+                    key={data.canvasKey}
                     className={"detailCanvas"}
                     camera={{ far: 2000, position: [0, 0, 3000] }}
                     // shadows
-                    frameloop={modalData.show ? modalData.modelData.frameloop : "always"}
-                    visibility={modalData.show ? "visible" : "hidden"}
+                    frameloop={data.modelData.frameloop}
+                    // visibility={modalData.show ? "visible" : "hidden"}
                 >
                     <Suspense>
                         <DetailScene
-                            modelData={modalData.modelData}
-                            setAnimationOptions={setAnimationsOptions}
-                            animationsOptions={animationsOptions}
-                            configuration={configuration}
+                            model={data.model}
+                            preset={data.preset}
+                            // setAnimationOptions={setAnimationsOptions}
+                            // animationsOptions={animationsOptions}
+                            // configuration={configuration}
                         />
                         <OrbitControls makeDefault />
                     </Suspense>
@@ -74,10 +75,20 @@ export default function VisualizationModal({modalData, onHide, onPrevious, onNex
                 />
             </Modal.Body>
             <Modal.Footer className={"background-gradient justify-content-between"}>
-                <Button className={"modal-button button-light"} onClick={handlePrevious} style={{visibility: !modalData.previousId ? 'hidden' : 'visible'}} size={"lg"}>
+                <Button
+                    size={"lg"}
+                    className={"modal-button button-light"}
+                    style={{visibility: !data.previousId ? 'hidden' : 'visible'}}
+                    onClick={onPrevious}
+                >
                     <FontAwesomeIcon icon={icon({name: "arrow-left-long"})} /> Previous
                 </Button>
-                <Button className={"modal-button button-light"} onClick={handleNext} style={{visibility: !modalData.nextId ? 'hidden' : 'visible'}} size={"lg"}>
+                <Button
+                    size={"lg"}
+                    className={"modal-button button-light"}
+                    style={{visibility: !data.nextId ? 'hidden' : 'visible'}}
+                    onClick={onNext}
+                >
                     Next <FontAwesomeIcon icon={icon({name: "arrow-right-long"})} />
                 </Button>
             </Modal.Footer>

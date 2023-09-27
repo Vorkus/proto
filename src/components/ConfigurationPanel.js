@@ -5,8 +5,14 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {icon} from "@fortawesome/fontawesome-svg-core/import.macro";
 import ConfigurationSelect from "./ConfigurationSelect";
 
-export default function ConfigurationPanel({handlePresetChange, handleAnimationChange, animationsLabels}) {
+export default function ConfigurationPanel({animations, onPresetChange, onAnimationChange}) {
     const [open, setOpen] = useState(true);
+
+    console.log("Entro Configuration panel", animations)
+
+    if (!animations) {
+        return null;
+    }
 
     const presetsOptions = [
         {
@@ -55,7 +61,7 @@ export default function ConfigurationPanel({handlePresetChange, handleAnimationC
             label: "Warehouse"
         },
     ];
-    const animationsOptions = animationsLabels.map((value, key) => {
+    const animationsOptions = animations.map((value, key) => {
         return {
             id: key,
             value: value,
@@ -83,7 +89,7 @@ export default function ConfigurationPanel({handlePresetChange, handleAnimationC
                                             <ConfigurationSelect
                                                 label={"Preset:"}
                                                 options={presetsOptions}
-                                                handleChange={handlePresetChange}
+                                                onChange={onPresetChange}
                                             />
                                         </Col>
                                     </Row>
@@ -92,7 +98,7 @@ export default function ConfigurationPanel({handlePresetChange, handleAnimationC
                                             <ConfigurationSelect
                                                 label={"Animations:"}
                                                 options={animationsOptions}
-                                                handleChange={handleAnimationChange}
+                                                onChange={onAnimationChange}
                                             />
                                         </Col>
                                     </Row>

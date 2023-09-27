@@ -5,7 +5,7 @@ import { icon } from '@fortawesome/fontawesome-svg-core/import.macro';
 import '../styles/ModelCard.css';
 import {Container} from "react-bootstrap";
 
-export default function ModelCard({modelData, handleClick })
+export default function ModelCard({modelInformation, onClick })
 {
     function getRandomInt(maxValue) {
         return Math.floor(Math.random() * maxValue);
@@ -14,10 +14,10 @@ export default function ModelCard({modelData, handleClick })
     return (
         <Card
             className={"modelCard h-100"}
-            id={modelData.id}
-            onClick={handleClick}
+            id={modelInformation.id}
+            onClick={onClick}
         >
-            <RotatingImage imageUrl={modelData.imageUrl}/>
+            <RotatingImage imageUrl={modelInformation.imageUrl}/>
             <Card.Body className={"p-2"}>
                 <Container fluid className={"px-0 d-flex align-items-center justify-content-between"}>
                     <img
@@ -25,7 +25,7 @@ export default function ModelCard({modelData, handleClick })
                         src={ "https://static.vecteezy.com/system/resources/thumbnails/010/260/479/small/default-avatar-profile-icon-of-social-media-user-in-clipart-style-vector.jpg" }
                         alt={"User profile"}
                     />
-                    <span className={"text-truncate"}>{ modelData.title }</span>
+                    <span className={"text-truncate"}>{ modelInformation.title }</span>
                 </Container>
             </Card.Body>
             <Card.Footer>

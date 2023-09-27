@@ -6,9 +6,12 @@ export default class MockData {
             title: "Animated triceratops skeleton",
             modelData: {
                 url: "/proto/3d_models/12/scene.gltf",
-                hasAnimations: true,
                 shadows: false,
                 frameloop: "always",
+                animations: [
+                    "Armature|IdleGround",
+
+                ],
             },
         },
         {
@@ -17,9 +20,9 @@ export default class MockData {
             title: "Hydria apothecary vase",
             modelData: {
                 url: "/proto/3d_models/5/scene.gltf",
-                hasAnimations: false,
                 shadows: "contact",
                 frameloop: "demand",
+                animations: [],
             },
         },
         {
@@ -28,9 +31,9 @@ export default class MockData {
             title: "Emblem of “The Golden Head” pharmacy in Kraków",
             modelData: {
                 url: "/proto/3d_models/2/scene.gltf",
-                hasAnimations: false,
                 shadows: "contact",
                 frameloop: "demand",
+                animations: [],
             },
         },
         {
@@ -39,9 +42,9 @@ export default class MockData {
             title: "Violin",
             modelData: {
                 url: "/proto/3d_models/4/scene.gltf",
-                hasAnimations: false,
                 shadows: "contact",
                 frameloop: "demand",
+                animations: [],
             },
         },
         {
@@ -50,9 +53,9 @@ export default class MockData {
             title: "Priest Karol Wojtyła’s sports shoes",
             modelData: {
                 url: "/proto/3d_models/3/scene.gltf",
-                hasAnimations: false,
                 shadows: "contact",
                 frameloop: "demand",
+                animations: [],
             },
         },
         {
@@ -61,9 +64,9 @@ export default class MockData {
             title: "Apollo and Daphne",
             modelData: {
                 url: "/proto/3d_models/1/scene.gltf",
-                hasAnimations: false,
                 shadows: "contact",
                 frameloop: "demand",
+                animations: [],
             },
         },
         {
@@ -72,9 +75,9 @@ export default class MockData {
             title: "Netsuke - Snake curled around a turtle",
             modelData: {
                 url: "/proto/3d_models/11/scene.gltf",
-                hasAnimations: false,
                 shadows: "contact",
                 frameloop: "demand",
+                animations: [],
             },
         },
         {
@@ -83,9 +86,9 @@ export default class MockData {
             title: "Shengding Food Vessel, around 575 BCE",
             modelData: {
                 url: "/proto/3d_models/6/scene.gltf",
-                hasAnimations: false,
                 shadows: "contact",
                 frameloop: "demand",
+                animations: [],
             },
         },
         {
@@ -94,9 +97,9 @@ export default class MockData {
             title: "Water-Moon Guanyin",
             modelData: {
                 url: "/proto/3d_models/7/scene.gltf",
-                hasAnimations: false,
                 shadows: "contact",
                 frameloop: "demand",
+                animations: [],
             },
         },
         {
@@ -105,9 +108,9 @@ export default class MockData {
             title: "Orbiter Space Shuttle OV-103 Discovery",
             modelData: {
                 url: "/proto/3d_models/8/scene.gltf",
-                hasAnimations: false,
                 shadows: "contact",
                 frameloop: "demand",
+                animations: [],
             },
         },
         {
@@ -116,9 +119,9 @@ export default class MockData {
             title: "Coptic prayer book",
             modelData: {
                 url: "/proto/3d_models/9/scene.gltf",
-                hasAnimations: false,
                 shadows: "contact",
                 frameloop: "demand",
+                animations: [],
             },
         },
         {
@@ -127,20 +130,26 @@ export default class MockData {
             title: "Löwe",
             modelData: {
                 url: "/proto/3d_models/10/scene.gltf",
-                hasAnimations: false,
                 shadows: "contact",
                 frameloop: "demand",
+                animations: [],
             },
         },
     ];
 
-    static getData(id = null) {
+    static getModelData(id)  {
         if (id) {
             const index = MockData.#mockData.map(e => e.id).indexOf(id);
 
-            return MockData.#mockData[index];
+            if (-1 !== index) {
+                return MockData.#mockData[index];
+            }
         }
 
+        return null;
+    }
+
+    static getAllData() {
         return MockData.#mockData;
     }
 

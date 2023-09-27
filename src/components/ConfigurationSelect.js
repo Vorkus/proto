@@ -1,11 +1,11 @@
 import {Form} from "react-bootstrap";
 
-export default function ConfigurationSelect({label, options, handleChange}) {
+export default function ConfigurationSelect({label, options, onChange}) {
     return (
         <Form.Group>
             <Form.Label><strong>{label}</strong></Form.Label>
             <Form.Select
-                onChange={handleChange}
+                onChange={onChange}
                 defaultValue={options ? options[0].value : ''}
             >
                 {
