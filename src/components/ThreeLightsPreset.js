@@ -1,5 +1,4 @@
 import {Bounds, Center, ContactShadows} from "@react-three/drei";
-import StaticModel from "./StaticModel";
 import {useCallback, useState} from "react";
 
 export default function ThreeLightsPreset({model, shadows}) {
@@ -45,7 +44,6 @@ export default function ThreeLightsPreset({model, shadows}) {
             <Bounds clip fit observe>
                 <Center onCentered={onCentered}>
                     {model}
-                    {/*<StaticModel url={modelUrl}/>*/}
                 </Center>
             </Bounds>
         </>

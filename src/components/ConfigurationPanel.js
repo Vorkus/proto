@@ -8,10 +8,28 @@ import ConfigurationSelect from "./ConfigurationSelect";
 export default function ConfigurationPanel({animations, onPresetChange, onAnimationChange}) {
     const [open, setOpen] = useState(true);
 
-    console.log("Entro Configuration panel", animations)
-
-    if (!animations) {
-        return null;
+    let animationsSelect;
+    if (animations && 0 < animations.length) {
+        const animationsOptions = animations.map((value, key) => {
+            return {
+                id: key,
+                value: value,
+                label: value,
+            }
+        })
+        animationsSelect =
+            <Row>
+                <Col>
+                    <ConfigurationSelect
+                        label={"Animations:"}
+                        options={animationsOptions}
+                        onChange={onAnimationChange}
+                    />
+                </Col>
+            </Row>
+        ;
+    } else {
+        animationsSelect = null;
     }
 
     const presetsOptions = [
@@ -61,13 +79,6 @@ export default function ConfigurationPanel({animations, onPresetChange, onAnimat
             label: "Warehouse"
         },
     ];
-    const animationsOptions = animations.map((value, key) => {
-        return {
-            id: key,
-            value: value,
-            label: value,
-        }
-    })
 
     return (
         <>
@@ -93,15 +104,7 @@ export default function ConfigurationPanel({animations, onPresetChange, onAnimat
                                             />
                                         </Col>
                                     </Row>
-                                    <Row>
-                                        <Col>
-                                            <ConfigurationSelect
-                                                label={"Animations:"}
-                                                options={animationsOptions}
-                                                onChange={onAnimationChange}
-                                            />
-                                        </Col>
-                                    </Row>
+                                    {animationsSelect}
                                 </Card.Body>
                             </Card>
                         </Col>

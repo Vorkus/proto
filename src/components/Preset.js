@@ -1,5 +1,4 @@
 import {Stage} from "@react-three/drei";
-import StaticModel from "./StaticModel";
 
 export default function Preset({model, shadows, environment}) {
     if (!model || !environment) return null;
@@ -12,9 +11,6 @@ export default function Preset({model, shadows, environment}) {
             intensity={0.1}
         >
             {model}
-            {/*<StaticModel*/}
-            {/*    url={modelUrl}*/}
-            {/*/>*/}
         </Stage>
     );
 }

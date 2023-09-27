@@ -7,7 +7,6 @@ import Model from "../components/Model";
 import PreloadedModel from "../components/PreloadedModel";
 
 export default function Catalog() {
-    console.log("Entro Catalog")
     const [modalData, setModalData] = useState(null);
 
     const cardsCols = MockData.getAllData().map(data => {
@@ -54,13 +53,13 @@ export default function Catalog() {
         setModalData(
             {
                 ...modalData,
+                canvasKey: crypto.randomUUID(),
                 preset: event.target.value,
             }
         )
     }
 
     function onAnimationChange(event) {
-        console.log(event.target.value)
         setModalData(
             {
                 ...modalData,
@@ -83,23 +82,24 @@ export default function Catalog() {
             modelData: mockData.modelData,
             previousId: MockData.getPreviousId(modelId),
             nextId: MockData.getNextId(modelId),
-            canvasKey: crypto.randomUUID(),
             preset: modalData && modalData.preset ? modalData.preset : 'default',
             // Preload the model to recover animations, then update with the actual model and the activeAnimation
+            animations: [],
             model:
                 <PreloadedModel
                     url={MockData.getModelData(modelId).modelData.url}
-                    onLoad={onModelLoad}
+                    onLoad={onModelPreLoad}
                 />,
         };
     }
 
     // Executed immediately after every new model load
-    function onModelLoad(animations) {
+    function onModelPreLoad(animations) {
         // Using an updater function so animationsOptions are added when model is loaded (and only triggers one re-render)
         setModalData( modalData => {
                 return {
                     ...modalData,
+                    canvasKey: crypto.randomUUID(),
                     animations: animations,
                     model:
                         <Model
