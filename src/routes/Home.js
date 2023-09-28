@@ -20,12 +20,12 @@ export default function Home() {
                     <ScrollControls pages={4} damping={0.1}>
                         <HomeItems />
                         <Scroll html style={{ width: '100%' }}>
-                            <h1 className={"landing-text"} style={{ position: 'absolute', top: `50vh`, right: '25vw', fontSize: `calc(12vw)` }}>Hello!</h1>
-                            <h1 style={{ position: 'absolute', top: '175vh', left: '10vw' }}>Find any 3D model</h1>
-                            <h1 style={{ position: 'absolute', top: '260vh', right: '10vw' }}>you may need...</h1>
-                            <div style={{ position: 'absolute', top: '270vh', left: '8vw' }}>
+                            <h1 className={"landing-text"} style={{ position: 'absolute', top: `15vh`, right: '30vw', fontSize: "12vw" }}>Hello!</h1>
+                            <h1 style={{ position: 'absolute', top: '165vh', left: '10vw' }}>Find any 3D model</h1>
+                            <h1 style={{ position: 'absolute', top: '170vh', left: '10vw' }}>you may need...</h1>
+                            <div style={{ position: 'absolute', top: '280vh', left: '10vw' }}>
                                 <img style={{position: "relative", top: "15vh",left: "20vw", width: "40vw" }} src={"/proto/home/12/12.gif"} alt={"Dino walking"}/>
-                                <h1 className={"animated-text"} style={{position: "relative", top: "30vh"}}>Now animated!</h1>
+                                <h1 className={"animated-text"} style={{position: "relative", top: "20vh"}}>Now animated!</h1>
                             </div>
                         </Scroll>
                     </ScrollControls>
