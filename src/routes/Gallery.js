@@ -8,7 +8,7 @@ export default function Gallery() {
     return (
         <Container fluid className={"gallery-container gallery-spacing"}>
             <header>
-                <Menu />
+                <Menu animatedLogo={true} />
                 <Title />
             </header>
             <main>
