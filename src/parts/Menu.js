@@ -5,7 +5,7 @@ import '../styles/Menu.css';
 export default function Menu({animatedLogo}) {
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" className="menu-nav background-transparent bg-body-tertiary pb-4">
+            <Navbar collapseOnSelect expand="lg" className="menu-nav background-transparent bg-body-tertiary">
                 <Container fluid className={"p-0"}>
                     <Navbar.Brand href={"/proto/#/"} className={"m-0"}>
                         <Logo animatedLogo={animatedLogo}/>

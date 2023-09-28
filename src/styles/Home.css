@@ -4,6 +4,26 @@
 }
 
 .canvas-container {
-    padding-top: 112px;
+    padding-top: 96px;
     height: 100%;
 }
+
+/*.page1 {*/
+/*    position: absolute;*/
+/*    height: calc(100vh - 96px);*/
+/*    width: 100vw;*/
+/*}*/
+
+/*.page2 {*/
+/*    position: absolute;*/
+/*    top: calc(100vh - 96px);*/
+/*    height: calc(100vh - 96px);*/
+/*    width: 100vw;*/
+/*}*/
+
+/*.page3 {*/
+/*    position: absolute;*/
+/*    top: calc(2 * (100vh - 96px));*/
+/*    height: calc(100vh - 96px);*/
+/*    width: 100vw;*/
+/*}*/
